@@ -11,18 +11,6 @@
     "name": "Header",
     "settings": [
       {
-        "id": "topbar",
-        "type": "text",
-        "label": " topbar Phone Number",
-        "default": "555-567-1234"
-      },
-      {
-        "id": "topbar_text",
-        "type": "text",
-        "label": " Topbar Text",
-        "default": "Free Shipping on orders above $300"
-      },
-      {
         "id": "Header_logo",
         "type": "image_picker",
         "label": " Header Logo"
