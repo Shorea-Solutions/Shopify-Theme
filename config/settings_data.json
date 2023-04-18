@@ -3,6 +3,8 @@
     "topbar": "555-435-8912",
     "topbar_text": "Free Shipping on orders above $200",
     "Header_logo": "shopify:\/\/shop_images\/logo.png",
+    "main_menu": "main-menu",
+    "main_menu_product": "bead",
     "sections": {
       "hero": {
         "type": "hero",
