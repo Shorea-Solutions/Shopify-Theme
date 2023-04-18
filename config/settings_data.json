@@ -161,6 +161,13 @@
         ],
         "settings": {
         }
+      },
+      "topbar": {
+        "type": "topbar",
+        "settings": {
+          "telephone": "07123 456 999",
+          "announcement": "Free Shipping on orders above $100"
+        }
       }
     },
     "content_for_index": [
