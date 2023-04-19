@@ -1336,6 +1336,9 @@ section.categories .item span {
 
 .product .image img {
   max-width: 170px;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .product .image-no-padding {
