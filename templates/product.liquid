@@ -85,7 +85,7 @@
         </div>
         <p>{{product_description[1]}}</p>
 
-
+        <form method="post" action="/cart/add">
           <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
             <div class="quantity d-flex align-items-center">
               <div class="dec-btn">-</div>
@@ -96,24 +96,25 @@
             {%for product_option in product.options_with_values%}
               <select id="product-size" class="bs-select" data-index="option{{forloop.index}}">
                 {%for value in product_option.values%}
-                <option value="{{value | escape}}"{% if product_option.selected_value%}selected="selected"{%endif%}>{{value}}</option>
+                <option value="{{value | escape}}"{% if product_option.selected_value == value%}selected="selected"{%endif%}>{{value}}</option>
                 {%endfor%}
               </select>
             {%endfor%}
           </div>
+
+          <input type="text" id="variant-id" name="id" value="{{product.variants.first.id}}">
           <ul class="CTAs list-inline">
             <li class="list-inline-item">
-              <a href="#" class="btn btn-template wide">
-                <i class="icon-cart"></i>Add to Cart</a>
+              <button type="submit" class="btn btn-template wide">
+                <i class="icon-cart"></i>Add to Cart</button>
             </li>
             <li class="list-inline-item">
-              <a href="#" class="btn btn-template-outlined wide">
-                <i class="fa fa-heart-o"></i>Add to wishlist</a>
+              <button class="btn btn-template-outlined wide">
+                <i class="fa fa-heart-o"></i>Add to wishlist</button>
             </li>
           </ul>
-          </div>
-
-
+        </form>
+        </div>
     </div>
   </div>
 </section>
