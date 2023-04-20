@@ -168,6 +168,12 @@
           "telephone": "07123 456 999",
           "announcement": "Free Shipping on orders above $100"
         }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "collection_sidebar": "main-menu"
+        }
       }
     },
     "content_for_index": [
