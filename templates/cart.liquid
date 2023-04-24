@@ -1,46 +1,90 @@
-{% if cart.item_count > 0 %}
-  <h1>cart</h1>
-  <form action="/cart" method="post" novalidate>
-    <table>
-      <thead>
-        <th colspan="2">Prod</th>
-        <th>Price</th>
-        <th>Qty</th>
-        <th>total</th>
-      </thead>
-      <tbody>
-        {% for item in cart.items %}
-          <tr>
-            <td>
-              <a href="{{ item.url | within: collections.all }}">
-                <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
-              </a>
-            </td>
-            <td>
-              <a href="{{ item.url }}">{{ item.product.title }}</a>
-              {{ item.variant.title }}
-              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
-            </td>
-            <td>{{ item.price | money }}</td>
-            <td>
-              <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
-            </td>
-            <td>
-              {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
-              {{ item.line_price | money }}
-              {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    <div>
-      <p>sub total : {{ cart.total_price | money }}</p>
-      <button type="submit" name="update">Update</button>
-      <button type="submit" name="checkout">Checkout</button>
+<section class="hero hero-page gray-bg padding-small">
+  <div class="container">
+    <div class="row d-flex">
+      <div class="col-lg-9 order-2 order-lg-1">
+        <h1>Shopping cart</h1>
+        <p class="lead text-muted">You currently have {{cart.item_count}} items in your shopping cart</p>
+      </div>
+      <div class="col-lg-3 text-right order-1 order-lg-2">
+        <ul class="breadcrumb justify-content-lg-end">
+          <li class="breadcrumb-item">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="breadcrumb-item active">Shopping cart</li>
+        </ul>
+      </div>
     </div>
-  </form>
-{% else %}
-  <h2>cart</h2>
-  Cart is empty
-{% endif %}
+  </div>
+</section>
+
+<form method="post" action="/cart">
+  <section class="shopping-cart">
+    <div class="container">
+      <div class="basket">
+        <div class="basket-holder">
+          <div class="basket-header">
+            <div class="row">
+              <div class="col-5">Product</div>
+              <div class="col-2">Price</div>
+              <div class="col-2">Quantity</div>
+              <div class="col-2">Total</div>
+              <div class="col-1 text-center">Remove</div>
+            </div>
+          </div>
+          <div class="basket-body">
+
+          {%for line_item in cart.items%}
+            <div class="item">
+              <div class="row d-flex align-items-center">
+                <div class="col-5">
+                  <div class="d-flex align-items-center"><img
+                      src="{{line_item.image | img_url: '2048x'}}"
+                      alt="..."
+                      class="img-fluid">
+                    <div class="title">
+                      <a href="{{line_item.url}}">
+                        <h5>{{line_item.product.title}}</h5>
+                        <span class="text-muted">Size: {{line_item.variant.title}}</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <span>{{line_item.original_price | money}}</span>
+                </div>
+                <div class="col-2">
+                  <div class="d-flex align-items-center">
+                    <div class="quantity d-flex align-items-center">
+                      <div class="dec-btn">-</div>
+                      <input
+                        type="text"
+                        name="updates[]"
+                        value="{{line_item.quantity}}"
+                        class="quantity-no">
+                      <div class="inc-btn">+</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <span>{{line_item.line_price | money}}</span>
+                </div>
+                <div class="col-1 text-center">
+                  <a href="/cart/change?line={{forloop.index}}&quantity=0" class="delete">
+                      <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+              </div>
+          {%endfor%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="CTAs d-flex align-items-center justify-content-center justify-content-md-end flex-column flex-md-row">
+        <button type="button" onclick="location.href='/collections/all'" class="btn btn-template-outlined wide">Continue Shopping</button>
+        <button type="submit" name="update" class="btn btn-template wide ml-3" id="update-btn">Update Cart</button>
+      </div>
+    </div>
+  </section>
+</form>
