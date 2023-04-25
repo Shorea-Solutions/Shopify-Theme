@@ -29,8 +29,8 @@
 
     <header class="header">
       <!-- Top Bar-->
-      {% section "topbar" %}
-      {% section "navbar" %}
+        {% section "topbar" %}
+        {% section "navbar" %}
     </header>
 
     {% if shop.customer_accounts_enabled %}
@@ -50,10 +50,15 @@
         <i class="fa fa-long-arrow-up"></i>
       </div>
 
-      <footer class="main-footer">
-        {% render 'footer-services' %}
-        {% render 'footer-main' %}
-      </footer>
+
+        <footer class="main-footer">
+         {% unless template.name == 'product' %}
+          {% render 'footer-services' %}
+          {% render 'footer-main' %}
+         {% endunless %}
+        </footer>
+
+      
     </main>
     {{ 'jquery.min.js' | asset_url | script_tag }}
     {{ 'bootstrap.bundle.min.js' | asset_url | script_tag }}

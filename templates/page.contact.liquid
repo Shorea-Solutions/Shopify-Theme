@@ -1,19 +1,39 @@
-<h1>{{ page.title }}</h1>
-{% form 'contact' %}
-  {% if form.posted_successfully? %} Thank you for your contact {% endif %}
-  {{ form.errors | default_errors }}
-  <label for="ContactFormName">name</label>
-  <input type="text" id="ContactFormName" name="contact[name]">
-  <label for="ContactFormEmail">email</label>
-  <input type="email" id="ContactFormEmail" name="contact[email]">
-  <label for="ContactFormPhone">phone</label>
-  <input type="tel" id="ContactFormPhone" name="contact[phone]">
-  <label for="ContactFormMessage">message</label>
-  <textarea rows="10" id="ContactFormMessage" name="contact[body]"></textarea>
-  <input type="submit" value="send">
-{% endform %}
-
-
+   <section>
+        <div class="container">
+          <header class="mb-5">
+            <h2 class="heading-line">Contact form</h2>
+          </header>
+          <div class="row">
+            <div class="col-md-7">
+              <form id="contact-form" method="post" action="contact.php" class="custom-form form">
+                <div class="controls">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="name" class="form-label">Your firstname *</label>
+                        <input type="text" name="name" id="name" placeholder="Enter your firstname" required="required" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="surname" class="form-label">Your lastname *</label>
+                        <input type="text" name="surname" id="surname" placeholder="Enter your  lastname" required="required" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="form-label">Your email *</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your  email" required="required" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="message" class="form-label">Your message for us *</label>
+                    <textarea rows="4" name="message" id="message" placeholder="Enter your message" required="required" class="form-control"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-template">Send message</button>
+                </div>
+              </form>
+            </div>
+          </section>
 
 
 
