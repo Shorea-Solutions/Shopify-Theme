@@ -9,9 +9,13 @@
           </div>
           <div class="col-lg-6 d-flex justify-content-end">
             <!-- Language Dropdown-->
-            <div class="dropdown show"><a id="langsDropdown" href="https://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">English</a>
-              <div aria-labelledby="langsDropdown" class="dropdown-menu dropdown-menu-right"><a href="#" class="dropdown-item">German</a><a href="#" class="dropdown-item">French</a></div>
-            </div>
+            <div class="dropdown show">
+                <a id="langsDropdown" href="https://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><img src="img/united-kingdom.svg" alt="english">English</a>
+                <div aria-labelledby="langsDropdown" class="dropdown-menu dropdown-menu-right">
+                  <a href="#" class="dropdown-item"><img src="{{ block.settings.flag_image | img_url: '2048x'}}" alt="german">German</a>
+                  <a href="#" class="dropdown-item"> <img src="img/france.svg" alt="french">French</a>
+                </div>
+              </div>
             <!-- Currency Dropdown-->
             <div class="dropdown show"><a id="currencyDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">USD</a>
               <div aria-labelledby="currencyDropdown" class="dropdown-menu dropdown-menu-right"><a href="#" class="dropdown-item">EUR</a><a href="#" class="dropdown-item"> GBP</a></div>
@@ -40,6 +44,20 @@
         "label": "Announcement",
         "default": "Free Shipping on orders above $200"
       }
-    ]
+    ],
+        "blocks":[
+          {
+            "type": "text",
+            "name": "flags",
+            "settings": [
+                  {
+                    "type": "image_picker",
+                    "id": "flag_image",
+                    "label": "Flags Image"
+                  }
+            ]
+          }
+        ]
+
   }
 {% endschema %}

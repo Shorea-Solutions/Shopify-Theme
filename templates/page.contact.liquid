@@ -5,19 +5,25 @@
           </header>
           <div class="row">
             <div class="col-md-7">
-              <form id="contact-form" method="post" action="contact.php" class="custom-form form">
+              {% form 'contact', id: 'ContactForm'%}
                 <div class="controls">
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label for="name" class="form-label">Your firstname *</label>
-                        <input type="text" name="name" id="name" placeholder="Enter your firstname" required="required" class="form-control">
+                        <label for="ContactForm-name" class="form-label">Your firstname *</label>
+                        {% comment %} <input type="text" name="name" id="name" placeholder="Enter your firstname" required="required" class="form-control"> {% endcomment %}
+                        <input class="form-control" autocomplete="name" type="text" id="ContactForm-name" name="contact[firstname]"
+                          value="{% if form.first_name %}{{ form.first_name }}{% elsif customer %}{{ customer.first_name }}{% endif %}"
+                          placeholder="Your firstname">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label for="surname" class="form-label">Your lastname *</label>
-                        <input type="text" name="surname" id="surname" placeholder="Enter your  lastname" required="required" class="form-control">
+                        {% comment %} <input type="text" name="surname" id="surname" placeholder="Enter your  lastname" required="required" class="form-control"> {% endcomment %}
+                        <input class="form-control" autocomplete="name" type="text" id="ContactForm-name" name="contact[lastname]"
+                        value="{% if form.last_name %}{{ form.last_name }}{% elsif customer %}{{ customer.last_name }}{% endif %}"
+                        placeholder="Your lastname">
                       </div>
                     </div>
                   </div>
@@ -31,7 +37,7 @@
                   </div>
                   <button type="submit" class="btn btn-template">Send message</button>
                 </div>
-              </form>
+              {%endform%}
             </div>
           </section>
 
