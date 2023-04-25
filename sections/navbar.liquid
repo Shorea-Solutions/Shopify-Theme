@@ -20,7 +20,7 @@
   </div>
   <div class="container-fluid">
     <!-- Navbar Header  -->
-    <a href="index.html" class="navbar-brand"><img src="{{settings.Header_logo | img_url: 2048x}}" alt="..."></a>
+    <a href="index.html" class="navbar-brand"><img src="{{settings.Header_logo | img_url: '2048x'}}" alt="..."></a>
     <button
       type="button"
       data-toggle="collapse"
@@ -347,7 +347,7 @@
       <div class="right-col d-flex align-items-lg-center flex-column flex-lg-row">
         <!-- Search Button-->
         <div class="search">
-          <i class="icon-search"></i>
+          <i class="fa fa-search"></i>
         </div>
         <!-- User Not Logged - link to login page-->
         <div class="user">
@@ -355,7 +355,7 @@
             id="userdetails"
             href="customer-login.html"
             class="user-link">
-            <i class="icon-profile"></i>
+            <i class="fa fa-user"></i>
           </a>
         </div>
         <!-- Cart Dropdown-->
@@ -367,7 +367,7 @@
             aria-haspopup="true"
             aria-expanded="false"
             class="dropdown-toggle">
-            <i class="icon-cart"></i>
+            <i class="fa fa-shopping-cart"></i>
             <div class="cart-no">{{ cart.item_count }}</div>
           </a>
           <a href="cart.html" class="text-primary view-cart">View Cart</a>
@@ -421,3 +421,20 @@
     </div>
   </div>
 </nav>
+
+{% schema %}
+  {
+    "name": "Nav Bar",
+    "settings": [
+      {
+        "id": "Header_logo",
+        "type": "image_picker",
+        "label": " Header Logo"
+      }, {
+        "id": "main_menu",
+        "type": "link_list",
+        "label": "Main Menu"
+      }
+    ]
+  }
+{% endschema %}
