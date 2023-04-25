@@ -29,10 +29,8 @@
 
     <header class="header">
       <!-- Top Bar-->
-      {% unless template.name == 'blog' %}
         {% section "topbar" %}
         {% section "navbar" %}
-      {% endunless %}
     </header>
 
     {% if shop.customer_accounts_enabled %}
