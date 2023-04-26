@@ -10,11 +10,14 @@
           <div class="col-lg-6 d-flex justify-content-end">
             <!-- Language Dropdown-->
             <div class="dropdown show">
-                <a id="langsDropdown" href="https://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><img src="img/united-kingdom.svg" alt="english">English</a>
+              {%for block in section.blocks%}
+                <a id="langsDropdown" href="https://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+                <img src="{{ block.settings.eng_flag | img_url: '2048x'}}" alt="english">English</a>
                 <div aria-labelledby="langsDropdown" class="dropdown-menu dropdown-menu-right">
-                  <a href="#" class="dropdown-item"><img src="{{ block.settings.flag_image | img_url: '2048x'}}" alt="german">German</a>
-                  <a href="#" class="dropdown-item"> <img src="img/france.svg" alt="french">French</a>
+                  <a href="#" class="dropdown-item"><img src="{{ block.settings.ger_flag | img_url: '2048x'}}" alt="german">German</a>
+                  <a href="#" class="dropdown-item"> <img src="{{ block.settings.fre_flag | img_url: '2048x'}}" alt="french">French</a>
                 </div>
+              {%endfor%}
               </div>
             <!-- Currency Dropdown-->
             <div class="dropdown show"><a id="currencyDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">USD</a>
@@ -52,7 +55,17 @@
             "settings": [
                   {
                     "type": "image_picker",
-                    "id": "flag_image",
+                    "id": "eng_flag",
+                    "label": "Flags Image"
+                  },
+                  {
+                    "type": "image_picker",
+                    "id": "ger_flag",
+                    "label": "Flags Image"
+                  },
+                  {
+                    "type": "image_picker",
+                    "id": "fre_flag",
                     "label": "Flags Image"
                   }
             ]
