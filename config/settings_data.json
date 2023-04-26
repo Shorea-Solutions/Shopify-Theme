@@ -164,6 +164,19 @@
       },
       "topbar": {
         "type": "topbar",
+        "blocks": {
+          "5c734921-399d-4262-9930-3af38b4f7498": {
+            "type": "text",
+            "settings": {
+              "eng_flag": "shopify:\/\/shop_images\/united-kingdom.svg",
+              "ger_flag": "shopify:\/\/shop_images\/germany.svg",
+              "fre_flag": "shopify:\/\/shop_images\/france.svg"
+            }
+          }
+        },
+        "block_order": [
+          "5c734921-399d-4262-9930-3af38b4f7498"
+        ],
         "settings": {
           "telephone": "07123 456 999",
           "announcement": "Free Shipping on orders above $100"
@@ -173,6 +186,12 @@
         "type": "collection-template",
         "settings": {
           "collection_sidebar": "main-menu"
+        }
+      },
+      "navbar": {
+        "type": "navbar",
+        "settings": {
+          "main_menu": ""
         }
       }
     },
