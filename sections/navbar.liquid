@@ -39,15 +39,16 @@
           {% if link.title == "Shop" %}
             <li class="nav-item dropdown menu-large">
               <a
-                href="#"
+                href="{{link.url}}"
                 data-toggle="dropdown"
                 class="nav-link">{{ link.title }}<i class="fa fa-angle-down"></i>
               </a>
+
               <div class="dropdown-menu megamenu">
                 <div class="row">
                   <div class="col-lg-9">
                     <div class="row">
-                      {% for childlink in link.lists %}
+                      {% for childlink in link.links %}
                         <div class="col-lg-3">
                           <strong class="text-uppercase">{{ childlink.title }}</strong>
                           <ul class="list-unstyled">
@@ -60,6 +61,7 @@
                         </div>
                       {% endfor %}
                     </div>
+
                     <div class="row services-block">
                       <div class="col-xl-3 col-lg-6 d-flex">
                         <div class="item d-flex align-items-center">
@@ -430,10 +432,64 @@
         "id": "Header_logo",
         "type": "image_picker",
         "label": " Header Logo"
-      }, {
+      },
+      {
         "id": "main_menu",
         "type": "link_list",
         "label": "Main Menu"
+      },
+      {
+        "type": "header",
+        "content": "Services"
+      },
+      {
+        "id": "main_menu_service_one_icon",
+        "type": "text",
+        "label": "Main Menu Service One Icon"
+      }, {
+        "id": "main_menu_service_one_top_text",
+        "type": "text",
+        "label": "Main Menu Service One Top Text"
+      }, {
+        "id": "main_menu_service_one_bottom_text",
+        "type": "text",
+        "label": "Main Menu Service One Bottom Text"
+      }, {
+        "id": "main_menu_service_two_icon",
+        "type": "text",
+        "label": "Main Menu Service Two Icon"
+      }, {
+        "id": "main_menu_service_two_top_text",
+        "type": "text",
+        "label": "Main Menu Service Two Top Text"
+      }, {
+        "id": "main_menu_service_two_bottom_text",
+        "type": "text",
+        "label": "Main Menu Service Two Bottom Text"
+      }, {
+        "id": "main_menu_service_three_icon",
+        "type": "text",
+        "label": "Main Menu Service Three Icon"
+      }, {
+        "id": "main_menu_service_three_top_text",
+        "type": "text",
+        "label": "Main Menu Service Three Top Text"
+      }, {
+        "id": "main_menu_service_three_bottom_text",
+        "type": "text",
+        "label": "Main Menu Service Three Bottom Text"
+      }, {
+        "id": "main_menu_service_four_icon",
+        "type": "text",
+        "label": "Main Menu Service Four Icon"
+      }, {
+        "id": "main_menu_service_four_top_text",
+        "type": "text",
+        "label": "Main Menu Service Four Top Text"
+      }, {
+        "id": "main_menu_service_four_bottom_text",
+        "type": "text",
+        "label": "Main Menu Service Four Bottom Text"
       }
     ]
   }

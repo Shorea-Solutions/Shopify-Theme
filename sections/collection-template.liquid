@@ -55,7 +55,7 @@
             {%endif%}/
           {%endcapture%}
 
-            <div class="form-group mb-1">
+            <div >
               <input id="size0" type="radio" name="size" {%if current_tags contains "size_small" %}checked{% endif%} class="radio-template" 
                   onclick= "window.location = '{{collection_handle | strip | append: 'size_small'}}'">
               <label for="size0">Small</label>
@@ -64,7 +64,7 @@
               <input id="size1" type="radio" name="size" {% if current_tags contains "size_medium" %}checked{% endif%} class="radio-template"
                   onclick= "window.location.href = '{{collection_handle | strip | append: 'size_medium'}}'">
               <label for="size1">Medium</label>
-            </div>
+            </div>class="form-group mb-1"
             <div class="form-group mb-1">
               <input id="size2" type="radio" name="size" {%if current_tags contains "size_large" %}checked{% endif%}class="radio-template"
                   onclick= "window.location = '{{collection_handle | strip | append: 'size_large'}}'">
@@ -129,7 +129,7 @@
             </ul>
 
             <div class="filter-group-display__submit">
-              <input type="submit" value="Apply">
+              <input type="submit" class="btn btn-template wide ml-3" value="Apply">
             </div>
           {%- when 'price_range' -%}
             <div class="filter-group-display__price-range">
