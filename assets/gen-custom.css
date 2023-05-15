@@ -1,0 +1,12 @@
+/* overwriting the default css from base.css file */
+.product-form__submit {
+    background-color: greenyellow;
+}
+
+.image-with-text .button {
+    background-color: hotpink;
+}
+
+#shopify-section-template--1556349468916__image_banner .banner__heading {
+    font-size: 70px;
+}
